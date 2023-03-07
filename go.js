@@ -20,7 +20,7 @@ var boardStepY = 0;
 board.onload = () => {
     var dimen = wide ? canvasHeight : canvasWidth;
     boardScale = wide ? canvasHeight / board.height : canvasWidth / board.width;
-    console.log(boardScale);
+
     var imgW = dimen - 15;
     var imgH = dimen - 25;
     var x = wide ? (canvasWidth / 2) - (imgW / 2) : 0;
@@ -69,8 +69,8 @@ document.addEventListener("mousedown", function(e) {
     const w = pieceW.width * scale;
     const h = pieceW.height * scale;
     const p = black ? pieceB : pieceW;
-    const px = boardOffX + (boardStepX * ix) - ix - 31;
-    const py = boardOffY + (boardStepY * iy) - iy - 31;
+    const px = boardOffX + (boardStepX * ix) - ix - 41 / window.devicePixelRatio;
+    const py = boardOffY + (boardStepY * iy) - iy - 41 / window.devicePixelRatio;
     gameBoard[iy][ix] = black ? 1 : 2;
     black = !black;
     ctx.drawImage(p, px, py, w, h);
